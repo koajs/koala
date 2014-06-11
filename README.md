@@ -7,19 +7,21 @@ Very much in progress.
 
 ## Features
 
-- Optional nested query string supported
 - Body parsing is now included
   - First class request limit support
+  - Support compressed bodies
   - JSON bodies
   - Urlencoded bodies
   - Multipart bodies
   - Optional nested parameter support
-- Security
-  - CSRF
-  - Security headers
 - SPDY
   - Convenient `.push()`
   - Convenient SPDY Push file server
+- Security
+  - CSRF
+  - Security headers
+- Optional nested query string supported
+- Basic cookie sessions
 - Object stream support
 - Templates and rendering
 - Response compression
@@ -27,8 +29,9 @@ Very much in progress.
 
 Probably won't ever be supported:
 
-- Routing
-
+- Routing - way too opinionated
+- HTTP server handling - basically any http.createServer() stuff
+- Process handling and clustering
 
 ## API
 

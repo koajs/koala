@@ -5,6 +5,8 @@ An opinionated suite of Koa utilities allowing for quicker bootstrapping
 as well a guide to how to write apps using the Koa philosophy.
 Very much in progress.
 
+A generator is also included to bootstrap your app.
+
 ## Features
 
 - Body parsing is now included
@@ -26,6 +28,11 @@ Very much in progress.
 - Templates and rendering
 - Response compression
 - Better error page
+
+`koala(1)`:
+
+- Automatically setup a lot `koala` options
+- Setup a basic app template
 
 Probably won't ever be supported:
 

@@ -21,6 +21,7 @@
     "koa-session": "*",
     "koa-compress": "*",
     "koa-spdy-push": "*",
+    "koa-polyfills": "*",
     "koa-file-server": "*",
     "koa-response-time": "*"
   },

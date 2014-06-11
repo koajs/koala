@@ -22,6 +22,7 @@ A generator is also included to bootstrap your app.
 - Security
   - CSRF
   - Security headers
+- User-agent based polyfill serving
 - Optional nested query string supported
 - Basic cookie sessions
 - Object stream support
@@ -72,6 +73,10 @@ https://github.com/koajs/spdy-push
 
 https://github.com/koajs/file-server
 
+#### yield* this.polyfills.push()
+
+https://github.com/polyfills/koa
+
 #### yield this.save(stream, filename)
 
 Save a stream to a file.
@@ -107,3 +112,9 @@ https://github.com/cojs/busboy
 #### var form = yield* this.request.form([limit])
 
 ### res
+
+### routes
+
+### GET /polyfill.js
+
+https://github.com/polyfills/koa

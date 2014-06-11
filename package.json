@@ -1,0 +1,36 @@
+{
+  "name": "koala",
+  "description": "Koa Framework Suite",
+  "version": "0.0.0",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": "koajs/koala",
+  "dependencies": {
+    "debug": "*",
+    "commander": "*",
+    "merge-descriptors": "*",
+    "koa": "0",
+    "koa-csrf": "*",
+    "koa-json": "*",
+    "koa-logger": "*",
+    "koa-session": "*",
+    "koa-compress": "*",
+    "koa-spdy-push": "*",
+    "koa-file-server": "*",
+    "koa-response-time": "*"
+  },
+  "devDependencies": {
+    "mocha": "1",
+    "should": "3",
+    "superagent": "0"
+  },
+  "main": "lib",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/index.js"
+  }
+}

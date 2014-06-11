@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+program
+  .version(require('../package.json').version)
+  .usage('[options] dir');
+
+program.parse(process.argv);

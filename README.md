@@ -1,120 +1,56 @@
 
 # Koala
 
-An opinionated suite of Koa utilities allowing for quicker bootstrapping
-as well a guide to how to write apps using the Koa philosophy.
-Very much in progress.
+A suite of Koa utilities allowing for quicker bootstrapping,
+as well as a consequential guide on how to write apps using the Koa philosophy.
+Think of it as a KrakenJS for Koa.
 
-A generator is also included to bootstrap your app.
+## Philosophy
 
-## Features
+Koa is a bare minimal framework, focusing on unopinionated core HTTP utilities.
+However, this is not sufficient for most apps as a lot is not supported out of the box.
+Including a bunch of dependencies in every new app you create quickly becomes annoying.
 
-- Body parsing is now included
-  - First class request limit support
-  - Support compressed bodies
-  - JSON bodies
-  - Urlencoded bodies
-  - Multipart bodies
+The goal of Koala is to include the most used and unopinionated parts of apps
+into a single framework. Many things such as body parsing, sessions, and CSRF are
+included. Many other things, such as routing, is too opinionated and not included.
+
+Feel free to create suggestions!
+
+## Features and Documentation
+
+The Koala framework adds to Koa:
+
+- [Body Parsing](docs/body-parsing.md)
+  - Seamless `Expect: 100-continue` support
+  - Per-request body limits
+  - Supports JSON, urlencoded, and multipart bodies
+  - Supports arbitrary strings, buffers, and files as bodies
   - Optional nested parameter support
-- SPDY
-  - Convenient `.push()`
-  - Convenient SPDY Push file server
-- Security
-  - CSRF
-  - Security headers
-- User-agent based polyfill serving
-- Optional nested query string supported
-- Basic cookie sessions
-- Object stream support
-- Templates and rendering
-- Response compression
-- Better error page
+- [SPDY](docs/spdy.md) - specifically push streams
+- [File Serving](docs/static.md) - with SPDY push support
+- [Sessions](docs/sessions.md)
+  - Cookie-based sessions
+  - CSRF protection
+- [Polyfills](docs/polyfills.md) - serve polyfill bundles based on the user agent
+- [Response Caching](docs/response-caching.md) - cache and serve responses using an arbitrary store
+- [Security Headers](docs/headers.md)
+- [Error Page](docs/error-page.md) - better default error page
+- [etc](docs/etc.md)
+  - Basic auth
+  - Object stream support
+  - Optional nested query string supported
+- [FAQ](docs/faq.md)
 
-`koala(1)`:
+`koala(1)` will be a generator, similar to what `express(1)` is.
 
-- Automatically setup a lot `koala` options
-- Setup a basic app template
+## Roadmap
 
-Probably won't ever be supported:
+Next major feature will probably be some sort of view system.
 
-- Routing - way too opinionated
-- HTTP server handling - basically any http.createServer() stuff
-- Process handling and clustering
+Others may include:
 
-## API
+- Rate limiting with arbitrary stores
+- Tracing and logging
 
-### options
-
-### app
-
-### this
-
-#### this.locals
-
-#### this.session
-
-https://github.com/koajs/session
-
-#### this.csrf
-
-https://github.com/koajs/csrf
-
-#### this.assertCSRF([body])
-
-https://github.com/koajs/csrf
-
-#### this.isSpdy
-
-#### this.push(options)
-
-https://github.com/koajs/spdy-push
-
-#### this.fileServer.push(filename)
-
-https://github.com/koajs/file-server
-
-#### yield* this.polyfills.push()
-
-https://github.com/polyfills/koa
-
-#### yield this.save(stream, filename)
-
-Save a stream to a file.
-Designed to be used in conjunction with `this.request.parts()`.
-Specifically, Koala will never save multipart forms to the disk for you.
-
-### req
-
-#### var body = yield* this.request.body([limit])
-
-Yield the request's JSON or urlencoded body, if any.
-
-#### var body = yield* this.request.json([limit])
-
-Yield the request's JSON body, if any.
-
-#### var body = yield* this.request.urlencoded([limit])
-
-Yield the request's urlencoded body, if any.
-
-#### var text = yield* this.request.text([limit])
-
-Yield the request's body as a string.
-
-#### var buf = yield* this.request.buffer([limit])
-
-Yield the request's body as a buffer.
-
-#### var parts = this.request.parts([options])
-
-https://github.com/cojs/busboy
-
-#### var form = yield* this.request.form([limit])
-
-### res
-
-### routes
-
-### GET /polyfill.js
-
-https://github.com/polyfills/koa
+Let me know if you have any other suggestions.

@@ -17,6 +17,7 @@
     "koa": "0",
     "koa-csrf": "*",
     "koa-json": "*",
+    "koa-error": "*",
     "koa-logger": "*",
     "koa-session": "*",
     "koa-compress": "*",

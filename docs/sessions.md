@@ -13,6 +13,14 @@ Unlike other frameworks, CSRF verification is not done automatically.
 All options are passed to `koala(options)` and hashed as `options.session`.
 See [koa-session](https://github.com/koajs/session) for all the options.
 
+```js
+var app = koala({
+  session: {
+    maxAge: '2 weeks'
+  }
+})
+```
+
 ### this.session
 
 This is the session object.

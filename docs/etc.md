@@ -3,10 +3,6 @@
 
 Various additional features added to Koala.
 
-### this.handled
-
-Check whether a response or status has been set.
-
 ### this.request.basicAuth
 
 Uses [basic-auth](https://github.com/visionmedia/node-basic-auth).
@@ -36,3 +32,15 @@ app.use(function* () {
 ```
 
 ### Nested Query String Support
+
+By default, nested query strings are not supported
+either for the form parser or for URL query strings.
+You may be used to nested query strings if you come from Express.
+
+To enable both, simply set `options.qs = true`:
+
+```js
+var app = koala({
+  qs: true
+})
+```

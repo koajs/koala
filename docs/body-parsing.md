@@ -8,6 +8,18 @@ Body parsing is __not__ automatic and must be `yield`ed.
 ### Expect: 100-continue
 
 `Expect: 100-continue` is automatically supported as long as you use `app.listen()`.
+Otherwise, create your server like this:
+
+```js
+var fn = app.callback();
+var server = http.createServer(); // or whatever server you use
+server.on('request', fn); // regular requests
+server.on('checkContinue', function (req, res) {
+  // requests with `Expect: 100-continue`
+  req.checkContinue = true;
+  fn(req, res);
+});
+```
 
 ### Nested Query String Support
 
@@ -15,12 +27,17 @@ By default, node's `querystring` is used,
 which does not support nested parameters.
 To enable nested parameters, install set `options.qs = true` at initialization.
 
+```js
+var app = koala({
+  qs: true
+})
+```
+
 ### Body Limits
 
-Request body limits is a contentious issue.
-In general, you'd want to keep the limit low to avoid any
-potential attacks on your server.
-For example, for login forms, you probably don't need a limit much higher than `1kb`.
+In general, you'd want to keep body limits low to avoid any
+potential attacks on your server as well as keep memory usage as low as possible.
+For example, you probably don't need a limit much higher than `1kb` for login forms.
 
 You can also now set the limit on a per-request basis.
 Your limit on routes where users post articles would probably
@@ -139,12 +156,15 @@ app.use(function* (next) {
   var part;
   while (part = yield parts) {
     if (part.length) {
-      // arrays are fields
-      console.log('key: ' + part[0])
-      console.log('value: ' + part[1])
+      // fields are returned as arrays
+      var key = part[0];
+      var value = part[1];
+      // check the CSRF token
+      if (key === '_csrf') this.assertCSRF(value);
     } else {
-      // it's a stream, so save it to disk
-      yield this.save(part, '/tmp/something.md');
+      // files are returned as readable streams
+      // let's just save them to disk
+      yield this.save(part, '/tmp/file');
     }
   }
 })

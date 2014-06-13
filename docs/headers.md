@@ -17,6 +17,14 @@ Some security headers are available hashed as `options.security` passed to `koal
 - `xssProtection: true` - by default, `X-XSS-Protection: 1; mode=block`
 - `nosniff: true` for `X-Content-Type-Options: nosniff`
 
+```js
+var app = koala({
+  security: {
+    xframe: true
+  }
+})
+```
+
 ### Cache Control
 
 A utility to make setting the `Cache-Control` header a little bit easier.

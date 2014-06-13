@@ -4,7 +4,7 @@
 When building an app,
 I baked a lot of this logic into my app.
 It's better to make it a generic module so other people could use it
-and set some standard on how to build Koa apps.
+and set some standard on how to build more complex Koa apps.
 
 ## Will routing will be supported?
 

@@ -14,3 +14,16 @@ See [koa-cash](https://github.com/koajs/cash) for more details.
 
 All options passed to [koa-cash](https://github.com/koajs/cash) must be hashed
 by `.cash`.
+
+```js
+var app = koala({
+  cash: {
+    get: function () {
+
+    },
+    set: function () {
+
+    }
+  }
+})
+```

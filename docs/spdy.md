@@ -9,6 +9,18 @@ some of these features will be placed in Koa.
 
 Check whether SPDY is supported.
 
+```js
+app.use(function* (next) {
+  if (this.isSpdy) {
+    this.push('/some-file.js', {
+      filename: __dirname + '/some-file.js'
+    });
+  }
+
+  yield* next;
+})
+```
+
 ### [yield] this.push([path], options, [priority])
 
 SPDY push a body.

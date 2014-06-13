@@ -11,28 +11,34 @@
   "license": "MIT",
   "repository": "koajs/koala",
   "dependencies": {
-    "debug": "*",
-    "commander": "*",
-    "merge-descriptors": "*",
+    "qs": "0",
+    "debug": "1",
+    "delegates": "0",
+    "commander": "2",
+    "basic-auth": "0",
+    "merge-descriptors": "0",
+
     "koa": "0",
-    "koa-csrf": "*",
-    "koa-json": "*",
-    "koa-error": "*",
-    "koa-logger": "*",
-    "koa-session": "*",
-    "koa-compress": "*",
-    "koa-spdy-push": "*",
-    "koa-polyfills": "*",
-    "koa-file-server": "*",
-    "koa-response-time": "*"
+    "koa-qs": "1",
+    "koa-csrf": "2",
+    "koa-json": "1",
+    "koa-error": "1",
+    "koa-logger": "1",
+    "koa-session": "2",
+    "koa-compress": "1",
+    "koa-spdy-push": "0",
+    "koa-polyfills": "0",
+    "koa-file-server": "2",
+    "koa-body-parsers": "1",
+    "koa-response-time": "1"
   },
   "devDependencies": {
     "mocha": "1",
-    "should": "3",
-    "superagent": "0"
+    "should": "4",
+    "supertest": "0"
   },
   "main": "lib",
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/index.js"
+    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/app"
   }
 }

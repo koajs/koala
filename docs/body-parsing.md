@@ -13,11 +13,7 @@ Body parsing is __not__ automatic and must be `yield`ed.
 
 By default, node's `querystring` is used,
 which does not support nested parameters.
-To enable nested parameters, install the `qs` module and do the following:
-
-```js
-app.querystring = require('qs');
-```
+To enable nested parameters, install set `options.qs = true` at initialization.
 
 ### Body Limits
 
@@ -34,7 +30,7 @@ This is previously impossible with middleware.
 ### CSRF
 
 Koala uses [koa-csrf](https://github.com/koajs/csrf) for CSRF tokens.
-See [sessions](session.md) for more information on CSRF.
+See [sessions](sessions.md) for more information on CSRF.
 
 To check a body for a CSRF token,
 you __must__ do `this.assertCSRF(body)`,
@@ -87,6 +83,23 @@ case 'image/gif':
 default:
   this.throw(415, 'i do not know what to do with this request type')
 }
+```
+
+### this.response.writeContinue()
+
+If `Expect: 100-continue` was sent to the client,
+this will automatically response with a "100-continue".
+Use this right before parsing the body.
+Automatically called by all following body parsers,
+but you would still have to call it if you're doing something like:
+
+```js
+app.use(function* (next) {
+  if (this.request.is('image/*')) {
+    this.response.writeContinue();
+    yield this.save(this.req, '/tmp/image')
+  }
+})
 ```
 
 ### var body = yield* this.request.json([limit])

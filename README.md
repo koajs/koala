@@ -15,6 +15,11 @@ The goal of Koala is to include the most used and unopinionated parts of apps
 into a single framework. Many things such as body parsing, sessions, and CSRF are
 included. Many other things, such as routing, is too opinionated and not included.
 
+Unlike other frameworks, Koala will __not dictate how to write business logic__.
+Thanks to generators, writing business logic in Koa is much easier than other frameworks,
+and Koala's goal is to only make it easier.
+Don't expect a single option to automatically do magic for your app.
+
 Feel free to create suggestions!
 
 ## Features and Documentation
@@ -28,7 +33,7 @@ The Koala framework adds to Koa:
   - Supports arbitrary strings, buffers, and files as bodies
   - Optional nested parameter support
 - [SPDY](docs/spdy.md) - specifically push streams
-- [File Serving](docs/static.md) - with SPDY push support
+- [File Serving](docs/file-serving.md) - with SPDY push support
 - [Sessions](docs/sessions.md)
   - Cookie-based sessions
   - CSRF protection
@@ -46,10 +51,12 @@ The Koala framework adds to Koa:
 
 ## Roadmap
 
-Next major feature will probably be some sort of view system.
+Some additional features may include:
 
-Others may include:
-
+- A view system
+- Server-Side Event Streams
+- Timeout assertion
+- File server that SPDY pushes its dependencies
 - Rate limiting with arbitrary stores
 - Tracing and logging
 

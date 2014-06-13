@@ -1,5 +1,5 @@
 
-## Static Serving
+## File Serving
 
 Koala uses [koa-file-server](https://github.com/koajs/file-server) to serve static files.
 Unlike other static servers, this server assumes that

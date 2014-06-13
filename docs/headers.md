@@ -8,15 +8,14 @@ Koala adds some options and properties to make setting headers easier.
 Some security headers are available hashed as `options.security` passed to `koala(options)`.
 
 - `hsts`
-- `xframe`
-- `c3p`
-- `p3p`
-- `xss` or `xssProtection`
-- `cto` for `X-Content-Type-Options`
-
-### X-UA-Compatible
-
-This header is automatically set on HTML responses
+  - `<number>` - max age in milliseconds
+  - `.maxAge: <number>` - maxage in milliseconds
+  - `.includeSubDomains: false` - include sub domains
+- `xframe: true` - `X-Frame-Options: deny`
+- `c3p` - to be implemented
+- `p3p` - to be implemented
+- `xssProtection: true` - by default, `X-XSS-Protection: 1; mode=block`
+- `nosniff: true` for `X-Content-Type-Options: nosniff`
 
 ### Cache Control
 

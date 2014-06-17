@@ -1,6 +1,8 @@
 
 # Koala
 
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges) [![Gittip](http://img.shields.io/gittip/jonathanong.svg)](https://www.gittip.com/jonathanong/)
+
 A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
 Think of it as a KrakenJS for Koa.

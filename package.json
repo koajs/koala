@@ -12,6 +12,7 @@
   "repository": "koajs/koala",
   "dependencies": {
     "qs": "0",
+    "ms": "0",
     "debug": "1",
     "delegates": "0",
     "commander": "2",
@@ -20,6 +21,7 @@
 
     "koa": "0",
     "koa-qs": "1",
+    "koa-etag": "1",
     "koa-csrf": "2",
     "koa-json": "1",
     "koa-error": "1",
@@ -39,6 +41,6 @@
   },
   "main": "lib",
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/app"
+    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/app/index.js"
   }
 }

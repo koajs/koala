@@ -43,6 +43,7 @@ The Koala framework adds to Koa:
 - [Response Caching](docs/response-caching.md) - cache and serve responses using an arbitrary store
 - [Security Headers](docs/headers.md)
 - [Error Page](docs/error-page.md) - better default error page
+- [Tracing](docs/tracing.md)
 - [etc](docs/etc.md)
   - Basic auth
   - Object stream support
@@ -60,6 +61,5 @@ Some additional features may include:
 - Timeout assertion
 - File server that SPDY pushes its dependencies
 - Rate limiting with arbitrary stores
-- Tracing and logging
 
 Let me know if you have any other suggestions.

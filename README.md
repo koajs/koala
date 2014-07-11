@@ -1,7 +1,19 @@
 
 # Koala
 
-[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges) [![Gittip](http://img.shields.io/gittip/jonathanong.svg)](https://www.gittip.com/jonathanong/)
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![Gittip][gittip-image]][gittip-url]
+
+[npm-image]: https://img.shields.io/npm/v/koala.svg?style=flat
+[npm-url]: https://npmjs.org/package/koala
+[travis-image]: https://img.shields.io/travis/koajs/koala.svg?style=flat
+[travis-url]: https://travis-ci.org/koajs/koala
+[coveralls-image]: https://img.shields.io/coveralls/koajs/koala.svg?style=flat
+[coveralls-url]: https://coveralls.io/r/koajs/koala?branch=master
+[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat
+[gittip-url]: https://www.gittip.com/jonathanong/
 
 A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.

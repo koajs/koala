@@ -20,6 +20,7 @@
     "commander": "2",
     "basic-auth": "1",
     "merge-descriptors": "0",
+
     "koa": "0",
     "koa-qs": "1",
     "koa-etag": "1",
@@ -39,14 +40,26 @@
   },
   "devDependencies": {
     "mocha": "1",
-    "should": "4",
     "supertest": "0",
     "istanbul-harmony": "0"
   },
   "main": "lib",
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony-generators --require should --reporter spec --timeout 30s --bail test/app/index.js",
-    "test-cov": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --reporter dot --timeout 2m --bail test/app/index.js",
-    "test-travis": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should --reporter dot --timeout 2m --bail test/app/index.js"
-  }
+    "test": "NODE_ENV=test mocha --harmony-generators --reporter spec --timeout 30s --bail test/app/index.js",
+    "test-cov": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",
+    "test-travis": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/app/index.js"
+  },
+  "keywords": [
+    "koa",
+    "http",
+    "https",
+    "spdy",
+    "http2",
+    "framework",
+    "generators",
+    "es6",
+    "modules",
+    "promises",
+    "push"
+  ]
 }

@@ -68,10 +68,8 @@ The Koala framework adds to Koa:
 
 Some additional features may include:
 
-- A view system
-- Server-Side Event Streams
 - Timeout assertion
-- File server that SPDY pushes its dependencies
+- Server-Side Event Streams
 - Rate limiting with arbitrary stores
 
 Let me know if you have any other suggestions.

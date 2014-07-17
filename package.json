@@ -33,6 +33,7 @@
     "koa-normalize": "0",
     "koa-spdy-push": "0",
     "koa-polyfills": "0",
+    "koa-safe-jsonp": "0",
     "koa-file-server": "2",
     "koa-body-parsers": "1",
     "koa-response-time": "1"

@@ -29,6 +29,6 @@ describe('jsonp', function () {
     request(app.listen())
     .get('/user.json')
     .expect(200)
-    .expect('{"foo":"bar"}', done)
+    .expect({"foo":"bar"}, done)
   })
 })

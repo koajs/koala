@@ -23,6 +23,7 @@
     "koa": "0",
     "koa-qs": "1",
     "koa-etag": "1",
+    "koa-cash": "1",
     "koa-csrf": "2",
     "koa-json": "1",
     "koa-error": "1",

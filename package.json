@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": "koajs/koala",
   "dependencies": {
-    "qs": "0",
+    "qs": "1",
     "ms": "0",
     "mz": "1",
     "debug": "1",

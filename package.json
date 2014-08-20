@@ -31,7 +31,6 @@
     "koa-logger": "1",
     "koa-session": "2",
     "koa-compress": "1",
-    "koa-normalize": "0",
     "koa-spdy-push": "0",
     "koa-polyfills": "0",
     "koa-safe-jsonp": "0",

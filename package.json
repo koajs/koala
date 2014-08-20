@@ -32,7 +32,7 @@
     "koa-session": "2",
     "koa-compress": "1",
     "koa-spdy-push": "0",
-    "koa-polyfills": "0",
+    "koa-polyfills": "1",
     "koa-safe-jsonp": "0",
     "koa-file-server": "2",
     "koa-body-parsers": "1",
@@ -44,6 +44,12 @@
     "istanbul-harmony": "0"
   },
   "main": "lib",
+  "files": [
+    "lib",
+    "bin",
+    "docs",
+    "template"
+  ],
   "scripts": {
     "test": "NODE_ENV=test mocha --harmony-generators --reporter spec --timeout 30s --bail test/app/index.js",
     "test-cov": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",

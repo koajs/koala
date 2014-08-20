@@ -2,18 +2,12 @@
 # Koala
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
+[![Dependency Status][david-image]][david-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 [![Gittip][gittip-image]][gittip-url]
-
-[npm-image]: https://img.shields.io/npm/v/koala.svg?style=flat
-[npm-url]: https://npmjs.org/package/koala
-[travis-image]: https://img.shields.io/travis/koajs/koala.svg?style=flat
-[travis-url]: https://travis-ci.org/koajs/koala
-[coveralls-image]: https://img.shields.io/coveralls/koajs/koala.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/koajs/koala?branch=master
-[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat
-[gittip-url]: https://www.gittip.com/jonathanong/
 
 A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
@@ -71,6 +65,23 @@ Some additional features may include:
 
 - Timeout assertion
 - Server-Side Event Streams
-- Rate limiting with arbitrary stores
+- Rate limiting
 
 Let me know if you have any other suggestions.
+
+[npm-image]: https://img.shields.io/npm/v/koala.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/koala
+[github-tag]: http://img.shields.io/github/tag/koajs/koala.svg?style=flat-square
+[github-url]: https://github.com/koajs/koala/tags
+[travis-image]: https://img.shields.io/travis/koajs/koala.svg?style=flat-square
+[travis-url]: https://travis-ci.org/koajs/koala
+[coveralls-image]: https://img.shields.io/coveralls/koajs/koala.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/koajs/koala?branch=master
+[david-image]: http://img.shields.io/david/koajs/koala.svg?style=flat-square
+[david-url]: https://david-dm.org/koajs/koala
+[license-image]: http://img.shields.io/npm/l/koala.svg?style=flat-square
+[license-url]: LICENSE
+[downloads-image]: http://img.shields.io/npm/dm/koala.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/koala
+[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
+[gittip-url]: https://www.gittip.com/jonathanong/

@@ -17,10 +17,6 @@ describe('Conditional-Get', function () {
         if (err) return done(err)
 
         etag = res.headers.etag.slice(1, -1)
-        // should be base 64
-        var buffer = new Buffer(etag, 'base64')
-        assert.equal(32, buffer.length)
-        assert.equal(etag, buffer.toString('base64'))
         done()
       })
     })

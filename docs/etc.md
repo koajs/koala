@@ -44,3 +44,6 @@ var app = koala({
   qs: true
 })
 ```
+
+Note that `koala` does not pin the `qs` dependency.
+You should pin it yourself in your top-level app!

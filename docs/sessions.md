@@ -16,7 +16,7 @@ See [koa-session](https://github.com/koajs/session) for all the options.
 ```js
 var app = koala({
   session: {
-    maxAge: '2 weeks'
+    maxAge: 14*24*60*60*1000 // 2 weeks
   }
 })
 ```

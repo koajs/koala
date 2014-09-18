@@ -11,7 +11,9 @@ Some security headers are available hashed as `options.security` passed to `koal
   - `<number>` - max age in milliseconds
   - `.maxAge: <number>` - maxage in milliseconds
   - `.includeSubDomains: false` - include sub domains
-- `xframe: true` - `X-Frame-Options: deny`
+- `xframe` - default: true
+  - `true` - `X-Frame-Options: DENY`
+  - `'same'` - `X-Frame-Options: SAMEORIGIN`
 - `c3p` - to be implemented
 - `p3p` - to be implemented
 - `xssProtection: true` - by default, `X-XSS-Protection: 1; mode=block`

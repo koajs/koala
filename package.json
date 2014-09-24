@@ -1,7 +1,7 @@
 {
   "name": "koala",
   "description": "Koa Framework Suite",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",

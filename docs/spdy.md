@@ -27,7 +27,7 @@ SPDY push a body.
 This is a wrapper around [node-spdy push streams](https://github.com/indutny/node-spdy#push-streams),
 allowing you to not think about stream acknowledgement,
 error handling, and file descriptor leaks.
-[koa-spdy-push](https://github.com/koajs/spdy-push) is used under the hood.
+[spdy-push](https://github.com/jshttp/spdy-push) is used under the hood.
 
 - `path` - the path of the push stream
 - `priority: 7` - the priority of the push stream. `0` is highest, `7` is lowest.

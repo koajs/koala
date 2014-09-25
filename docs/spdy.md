@@ -62,3 +62,76 @@ app.use(function* () {
 You may optionally `yield this.push()`.
 This yields until the push stream is finished.
 You may want this to avoid some issues with push streams.
+
+### Setup SPDY server
+
+Since [node-spdy](https://github.com/indutny/node-spdy) is optional dependency. You need install it by yourself `npm install spdy --save`.
+
+SPDY server is compatible with https module and fallback to regular https (for browsers that don't support SPDY yet).
+
+Imagine you're building a single page web site.
+
+```js
+app.use(function* () {
+    yield this.fileServer.send('index.html');
+    if (this.isSpdy) {
+        yield this.push('/some-file.js', {
+            filename: __dirname + '/some-file.js'
+        });
+        yield this.fileServer.push('css/all.css'); // or better use fileServer.push
+        yield this.fileServer.push('img/logo.png'); // push image resources
+        yield this.polyfills.push(); // polyfills support push also
+    }
+});
+
+var spdy = require('spdy'),
+    fs = require('fs');
+
+var server = spdy.createServer({
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.crt'),
+    ca: fs.readFileSync('server.csr')
+}, app.callback());
+
+server.listen(3000);
+```
+
+Open chrome(27+) visit <https://localhost:3000>. Server logs like this:
+
+```
+  <-- GET /
+  --> GET / 200 302ms 367b
+```
+
+If you visit with other old browser without spdy support. The logs maybe like this:
+
+```
+  <-- GET /
+  --> GET / 200 76ms 367b
+  <-- GET /css/all.css
+  --> GET /css/all.css 200 16ms 32.73kb
+  <-- GET /js/polyfill.js
+  --> GET /js/polyfill.js 200 20ms -
+  <-- GET /some-file.js
+  --> GET /some-file.js 200 15ms -
+  <-- GET /img/logo.png
+  --> GET /img/logo.png 200 29ms 29.89kb
+```
+
+SPDY can help you reuse http connection. Send more data in one request.
+
+> Its goal is to reduce the latency of web pages. --- <http://www.chromium.org/spdy>
+
+### self-signed SSL Certificate
+
+For testing purposes. We need self-signed SSL certificate to boot up SPDY server.
+
+An easily way is install [spdy-keys](https://github.com/normalize/spdy-keys).
+
+```js
+var keys = require('spdy-keys');
+
+spdy.createServer(keys, app.callback());
+```
+
+If you want to create keys by yourself. Read [How to create a self-signed SSL Certificate ...](http://www.akadia.com/services/ssh_test_certificate.html)

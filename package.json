@@ -35,8 +35,8 @@
     "merge-descriptors": "0",
     "ms": "0",
     "mz": "1",
-    "qs": "*",
-    "spdy-push": "^1.0.0"
+    "qs": ">= 2",
+    "spdy-push": "1"
   },
   "devDependencies": {
     "mocha": "1",

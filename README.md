@@ -61,6 +61,27 @@ The Koala framework adds to Koa:
 
 `koala(1)` will be a generator, similar to what `express(1)` is.
 
+## Usage
+
+Simply replace `require('koa')` with `require('koala')`.
+Koala returns a `koa` app, except it includes more features.
+
+```js
+var koala = require('koala');
+var app = koala();
+
+app.use(function* () {
+  this.response.status = 204;
+});
+
+var fn = app.callback();
+
+require('http').createServer(fn).listen(function (err) {
+  if (err) throw err;
+  console.log('Koala app listening on port %s', this.address().port);
+});
+```
+
 ## Roadmap
 
 Some additional features may include:

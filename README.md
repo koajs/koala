@@ -1,5 +1,5 @@
 
-# Koala
+# Koala<sub>&alpha;</sub>
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
@@ -13,6 +13,8 @@ A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
 Think of it as a KrakenJS for Koa.
 
+Beware! Koala is alpha software!
+
 ## Philosophy
 
 Koa is a bare minimal framework, focusing on unopinionated core HTTP utilities.
@@ -24,7 +26,7 @@ into a single framework. Many things such as body parsing, sessions, and CSRF ar
 included. Many other things, such as routing, is too opinionated and not included.
 
 Unlike other frameworks, Koala will __not dictate how to write business logic__.
-Thanks to generators, writing business logic in Koa is much easier than other frameworks,
+Thanks to generators and, eventually, ES7 Async/Await, writing business logic in Koa is much easier than other frameworks,
 and Koala's goal is to only make it easier.
 Don't expect a single option to automatically do magic for your app.
 

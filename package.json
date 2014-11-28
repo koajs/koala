@@ -35,8 +35,7 @@
     "merge-descriptors": "0",
     "ms": "0",
     "mz": "1",
-    "qs": ">= 2",
-    "spdy-push": "1"
+    "qs": ">= 2"
   },
   "devDependencies": {
     "mocha": "2",
@@ -59,7 +58,6 @@
     "koa",
     "http",
     "https",
-    "spdy",
     "http2",
     "framework",
     "generators",

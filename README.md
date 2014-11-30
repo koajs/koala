@@ -1,6 +1,7 @@
 
 # Koala<sub>&alpha;</sub>
 
+[![Gitter chat][gitter-image]][gitter-url]
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
@@ -92,6 +93,8 @@ Some additional features may include:
 
 Let me know if you have any other suggestions.
 
+[gitter-image]: https://badges.gitter.im/koajs/koala.png
+[gitter-url]: https://gitter.im/koajs/koala
 [npm-image]: https://img.shields.io/npm/v/koala.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koala
 [github-tag]: http://img.shields.io/github/tag/koajs/koala.svg?style=flat-square

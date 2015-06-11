@@ -6,6 +6,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .expect('X-Response-Time', /s$/)
       .end(done)
     })
@@ -16,6 +17,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .end(function(err, res) {
         assert.equal(res.headers['X-Response-Time'], undefined)
         done(err)
@@ -29,6 +31,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .expect('X-Frame-Options', 'DENY')
       .end(done)
     })
@@ -41,6 +44,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .end(function(err, res) {
         assert.equal(res.headers['X-Frame-Options'], undefined)
         done(err)
@@ -55,6 +59,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .expect('X-Frame-Options', 'DENY')
       .end(done)
     })
@@ -67,6 +72,7 @@ describe('Set headers', function () {
 
       request(app.listen())
       .get('/')
+      .expect(404)
       .expect('X-Frame-Options', 'SAMEORIGIN')
       .end(done)
     })

@@ -26,20 +26,20 @@
     "koa-file-server": "2",
     "koa-json": "1",
     "koa-logger": "1",
-    "koa-qs": "1",
+    "koa-qs": "^2.0.0",
     "koa-response-time": "1",
     "koa-safe-jsonp": "0",
-    "koa-session": "2",
+    "koa-session": "^3.2.0",
     "koa-trace": "1",
-    "merge-descriptors": "0",
+    "merge-descriptors": "^1.0.0",
     "ms": "0",
-    "mz": "1",
+    "mz": "^2.0.0",
     "qs": ">= 2"
   },
   "devDependencies": {
+    "istanbul-harmony": "0",
     "mocha": "2",
-    "supertest": "0",
-    "istanbul-harmony": "0"
+    "supertest": "^1.0.1"
   },
   "main": "lib",
   "files": [

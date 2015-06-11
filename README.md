@@ -48,7 +48,7 @@ The Koala framework adds to Koa:
 - [Sessions](docs/sessions.md)
   - Cookie-based sessions
   - CSRF protection
-- [Polyfills](docs/polyfills.md) - serve polyfill bundles based on the user agent
+<!-- - [Polyfills](docs/polyfills.md) - serve polyfill bundles based on the user agent -->
 - [Response Caching](docs/response-caching.md) - cache and serve responses using an arbitrary store
 - [JSONP](docs/jsonp.md) - safe jsonp support
 - [Security Headers](docs/headers.md)

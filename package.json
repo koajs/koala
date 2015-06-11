@@ -26,7 +26,6 @@
     "koa-file-server": "2",
     "koa-json": "1",
     "koa-logger": "1",
-    "koa-polyfills": "1",
     "koa-qs": "1",
     "koa-response-time": "1",
     "koa-safe-jsonp": "0",

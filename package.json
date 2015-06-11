@@ -50,9 +50,9 @@
     "template"
   ],
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony-generators --reporter spec --timeout 30s --bail test/app/index.js",
-    "test-cov": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",
-    "test-travis": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/app/index.js"
+    "test": "NODE_ENV=test mocha --reporter spec --timeout 30s --bail test/app/index.js",
+    "test-cov": "NODE_ENV=test node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",
+    "test-travis": "NODE_ENV=test node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/app/index.js"
   },
   "keywords": [
     "koa",

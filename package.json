@@ -17,7 +17,7 @@
     "debug": "*",
     "delegates": "0",
     "koa": "0",
-    "koa-body-parsers": "1",
+    "koa-body-parsers": "^1.1.0",
     "koa-cash": "1",
     "koa-compress": "1",
     "koa-csrf": "2",

@@ -32,7 +32,7 @@
     "koa-session": "^3.2.0",
     "koa-trace": "1",
     "merge-descriptors": "^1.0.0",
-    "ms": "0",
+    "ms": "2.0.0",
     "mz": "^2.0.0",
     "qs": ">= 2"
   },

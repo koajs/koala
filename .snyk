@@ -1,0 +1,13 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:qs:20170213':
+    - koa-qs > qs:
+        reason: No patch available
+        expires: '2017-10-02T05:44:00.898Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:uglify-js:20151024':
+    - koa-error > swig > uglify-js:
+        patched: '2017-09-02T05:43:14.379Z'

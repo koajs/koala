@@ -1,7 +1,7 @@
 {
   "name": "koala",
   "description": "Koa Framework Suite",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",
@@ -12,12 +12,12 @@
   "repository": "koajs/koala",
   "dependencies": {
     "basic-auth": "1",
-    "bluebird": "2",
+    "bluebird": "3.1.1",
     "commander": "2",
     "debug": "*",
-    "delegates": "0",
-    "koa": "0",
-    "koa-body-parsers": "1",
+    "delegates": "1.0.0",
+    "koa": "1.1.2",
+    "koa-body-parsers": "^1.1.0",
     "koa-cash": "1",
     "koa-compress": "1",
     "koa-csrf": "2",
@@ -26,21 +26,20 @@
     "koa-file-server": "2",
     "koa-json": "1",
     "koa-logger": "1",
-    "koa-polyfills": "1",
-    "koa-qs": "1",
+    "koa-qs": "^2.0.0",
     "koa-response-time": "1",
     "koa-safe-jsonp": "0",
-    "koa-session": "2",
+    "koa-session": "^3.2.0",
     "koa-trace": "1",
-    "merge-descriptors": "0",
-    "ms": "0",
-    "mz": "1",
+    "merge-descriptors": "^1.0.0",
+    "ms": "2.0.0",
+    "mz": "^2.0.0",
     "qs": ">= 2"
   },
   "devDependencies": {
+    "istanbul-harmony": "0",
     "mocha": "2",
-    "supertest": "0",
-    "istanbul-harmony": "0"
+    "supertest": "^1.0.1"
   },
   "main": "lib",
   "files": [
@@ -50,9 +49,9 @@
     "template"
   ],
   "scripts": {
-    "test": "NODE_ENV=test mocha --harmony-generators --reporter spec --timeout 30s --bail test/app/index.js",
-    "test-cov": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",
-    "test-travis": "NODE_ENV=test node --harmony-generators node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/app/index.js"
+    "test": "NODE_ENV=test mocha --reporter spec --timeout 30s --bail test/app/index.js",
+    "test-cov": "NODE_ENV=test node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot --timeout 2m --bail test/app/index.js",
+    "test-travis": "NODE_ENV=test node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/app/index.js"
   },
   "keywords": [
     "koa",

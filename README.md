@@ -1,14 +1,13 @@
 
 # Koala<sub>&alpha;</sub>
 
+[![Gitter chat][gitter-image]][gitter-url]
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
-[![Gittip][gittip-image]][gittip-url]
-[![Gitter chat][gitter-image]][gitter-url]
 
 A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
@@ -48,7 +47,6 @@ The Koala framework adds to Koa:
 - [Sessions](docs/sessions.md)
   - Cookie-based sessions
   - CSRF protection
-- [Polyfills](docs/polyfills.md) - serve polyfill bundles based on the user agent
 - [Response Caching](docs/response-caching.md) - cache and serve responses using an arbitrary store
 - [JSONP](docs/jsonp.md) - safe jsonp support
 - [Security Headers](docs/headers.md)

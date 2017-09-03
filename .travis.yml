@@ -5,3 +5,7 @@ node_js:
 sudo: false
 script: "npm run test-travis"
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/06b722b9c1ca92dd4d75

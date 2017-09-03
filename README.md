@@ -1,4 +1,3 @@
-
 # Koala<sub>&alpha;</sub>
 
 [![Gitter chat][gitter-image]][gitter-url]
@@ -95,8 +94,6 @@ Let me know if you have any other suggestions.
 [gitter-url]: https://gitter.im/koajs/koala
 [npm-image]: https://img.shields.io/npm/v/koala.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koala
-[github-tag]: http://img.shields.io/github/tag/koajs/koala.svg?style=flat-square
-[github-url]: https://github.com/koajs/koala/tags
 [travis-image]: https://img.shields.io/travis/koajs/koala.svg?style=flat-square
 [travis-url]: https://travis-ci.org/koajs/koala
 [coveralls-image]: https://img.shields.io/coveralls/koajs/koala.svg?style=flat-square
@@ -107,5 +104,3 @@ Let me know if you have any other suggestions.
 [license-url]: LICENSE
 [downloads-image]: http://img.shields.io/npm/dm/koala.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/koala
-[gittip-image]: https://img.shields.io/gittip/jonathanong.svg?style=flat-square
-[gittip-url]: https://www.gittip.com/jonathanong/

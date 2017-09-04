@@ -12,16 +12,16 @@
   "repository": "koajs/koala",
   "dependencies": {
     "basic-auth": "1",
-    "bluebird": "3.1.1",
+    "bluebird": "3.5.0",
     "commander": "2",
     "debug": "*",
     "delegates": "1.0.0",
-    "koa": "1.1.2",
+    "koa": "1.4.0",
     "koa-body-parsers": "^1.1.0",
-    "koa-cash": "1",
+    "koa-cash": "2",
     "koa-compress": "1",
     "koa-csrf": "2",
-    "koa-error": "1",
+    "koa-error": "2",
     "koa-etag": "2",
     "koa-file-server": "2",
     "koa-json": "1",
@@ -29,7 +29,7 @@
     "koa-qs": "^2.0.0",
     "koa-response-time": "1",
     "koa-safe-jsonp": "0",
-    "koa-session": "^3.2.0",
+    "koa-session": "^4.5.0",
     "koa-trace": "1",
     "merge-descriptors": "^1.0.0",
     "ms": "2.0.0",
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "istanbul-harmony": "0",
-    "mocha": "2",
-    "supertest": "^1.0.1"
+    "mocha": "3",
+    "supertest": "^2.0.0"
   },
   "main": "lib",
   "files": [

@@ -12,14 +12,6 @@ A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
 Think of it as a KrakenJS for Koa.
 
-## Status
-
-Beware! Koala is alpha software!
-
-[Koa 2](https://github.com/koajs/koala/issues/17) is currently
-unsupported. Please refer to [Contributing](CONTRIBUTING.md) if you'd like to
-help us support it.
-
 ## Philosophy
 
 Koa is a bare minimal framework, focusing on unopinionated core HTTP utilities.

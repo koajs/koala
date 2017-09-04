@@ -12,7 +12,13 @@ A suite of Koa utilities allowing for quicker bootstrapping,
 as well as a consequential guide on how to write apps using the Koa philosophy.
 Think of it as a KrakenJS for Koa.
 
+## Status
+
 Beware! Koala is alpha software!
+
+[Koa 2](https://github.com/koajs/koala/issues/17) and [Node 6
+LTS](https://github.com/koajs/koala/issues/28) are currently unsupported. Please
+refer to [Contributing](CONTRIBUTING.md) if you'd like to help us support them.
 
 ## Philosophy
 

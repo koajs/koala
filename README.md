@@ -16,9 +16,9 @@ Think of it as a KrakenJS for Koa.
 
 Beware! Koala is alpha software!
 
-[Koa 2](https://github.com/koajs/koala/issues/17) and [Node 6
-LTS](https://github.com/koajs/koala/issues/28) are currently unsupported. Please
-refer to [Contributing](CONTRIBUTING.md) if you'd like to help us support them.
+[Koa 2](https://github.com/koajs/koala/issues/17) is currently
+unsupported. Please refer to [Contributing](CONTRIBUTING.md) if you'd like to
+help us support it.
 
 ## Philosophy
 

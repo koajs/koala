@@ -4,6 +4,7 @@ node_js:
   - 6
   - 8
 sudo: false
+before_install: "npm install --global npm"
 script: "npm run test-travis"
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
 notifications:

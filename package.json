@@ -12,7 +12,6 @@
   "repository": "koajs/koala",
   "dependencies": {
     "basic-auth": "1",
-    "bluebird": "3.5.0",
     "commander": "2",
     "debug": "*",
     "delegates": "1.0.0",

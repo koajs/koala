@@ -47,8 +47,7 @@ The Koala framework adds to Koa:
   - Supports JSON, urlencoded, and multipart bodies
   - Supports arbitrary strings, buffers, and files as bodies
   - Optional nested parameter support
-- [SPDY](docs/spdy.md) - specifically push streams
-- [File Serving](docs/file-serving.md) - with SPDY push support
+- [File Serving](docs/file-serving.md)
 - [Sessions](docs/sessions.md)
   - Cookie-based sessions
   - CSRF protection

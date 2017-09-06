@@ -15,7 +15,6 @@ Don't try to juggle multiple static folders.
 
 Some features of this static server:
 
-- SPDY push support
 - Creates strong `sha256` etags and caches them
 - Caches `fs.stat()` calls
 - Caches gzipped versions of these files
@@ -32,22 +31,5 @@ var app = koala({
   fileServer: {
     maxAge: '1 year'
   }
-})
-```
-
-## var file = yield* this.fileServer.push(path, [options])
-
-SPDY push a file from the folder.
-`path` must be relative without the leading `/`.
-Errors will be thrown on unknown files.
-The only `option` is `priority: 7`.
-
-`yield*` is required here because it uses an `fs.stat()` call
-to make sure the file exists.
-`yield` again and it'll wait until the file has finished being pushed.
-
-```js
-app.use(function* (next) {
-  yield* this.fileServer.push('favicon.ico')
 })
 ```

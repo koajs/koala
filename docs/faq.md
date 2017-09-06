@@ -32,7 +32,7 @@ With Koa, it's easier as well as better to do atomic updates.
 
 For example, if you use MongoDB, you might want to do something like: https://github.com/aheckmann/koa-mongodb-session/issues/5.
 
-## Will other SPDY and HTTP/2 features be supported?
+## Will other HTTP/2 features be supported?
 
 A lot of these features belong at the `http.createServer()` state of
 deploying your app, which Koala does not handle.

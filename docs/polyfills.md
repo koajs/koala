@@ -18,9 +18,3 @@ client's user-agent, giving them only what they need.
 
 Add `<script src="/polyfill.js"></script>` to your page,
 and the appropriate polyfills will be used on the page.
-
-### [yield] this.polyfills.push()
-
-To avoid that extra HTTP request delay,
-SPDY push `polyfill.js` so your page loads as fast as possible.
-You only need to do this when you serve HTML pages that have the script tag.

@@ -1,4 +1,3 @@
-
 ## File Serving
 
 Koala uses [koa-file-server](https://github.com/koajs/file-server) to serve static files.
@@ -27,7 +26,7 @@ so be sure to add `*.gz` to your `.gitignore`!.
 Where to pass all the options to the file server.
 
 ```js
-var app = koala({
+const app = koala({
   fileServer: {
     maxAge: '1 year'
   }

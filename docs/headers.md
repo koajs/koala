@@ -1,4 +1,3 @@
-
 ## Headers
 
 Koala adds some options and properties to make setting headers easier.
@@ -20,7 +19,7 @@ Some security headers are available hashed as `options.security` passed to `koal
 - `nosniff: true` for `X-Content-Type-Options: nosniff`
 
 ```js
-var app = koala({
+const app = koala({
   security: {
     xframe: true
   }

@@ -1,4 +1,3 @@
-
 ## Body Parsing
 
 Unlike Koa, Koala includes body parsing.
@@ -11,8 +10,8 @@ Body parsing is __not__ automatic and must be `yield`ed.
 Otherwise, create your server like this:
 
 ```js
-var fn = app.callback();
-var server = http.createServer(); // or whatever server you use
+const fn = app.callback();
+const server = http.createServer(); // or whatever server you use
 server.on('request', fn); // regular requests
 server.on('checkContinue', function (req, res) {
   // requests with `Expect: 100-continue`
@@ -28,7 +27,7 @@ which does not support nested parameters.
 To enable nested parameters, install set `options.qs = true` at initialization.
 
 ```js
-var app = koala({
+const app = koala({
   qs: true
 })
 ```
@@ -56,7 +55,7 @@ This allows you to selectively assert a token exists,
 for example, don't bother asserting when the user supplies an API token.
 
 ```js
-var body = yield* this.request.json([limit]);
+const body = yield* this.request.json([limit]);
 if (!body) this.throw(400, 'no body supplied!');
 this.assertCSRF(body); // will throw if CSRF verification fails
 
@@ -71,18 +70,18 @@ Here's an example:
 ```js
 switch (this.request.is('json', 'urlencoded', 'multipart', 'image/*')) {
 case 'json':
-  var body = yield* this.request.json();
+  const body = yield* this.request.json();
   break;
 case 'urlencoded':
-  var body = yield* this.request.urlencoded();
+  const body = yield* this.request.urlencoded();
   break
 case 'multipart':
-  var parts = this.request.parts();
-  var part;
+  const parts = this.request.parts();
+  let part;
   while (part = yield parts) {
     if (part.length) {
-      var key = part[0];
-      var value = part[1];
+      const key = part[0];
+      const value = part[1];
       // check the CSRF token
       if (key === '_csrf') this.assertCSRF(value);
     } else {
@@ -94,7 +93,7 @@ case 'image/jpeg':
 case 'image/png':
 case 'image/gif':
   // a supported image, so let's download it to disk
-  var destination = '/tmp/image';
+  const destination = '/tmp/image';
   yield this.save(this.req, destination);
   break
 default:
@@ -119,28 +118,28 @@ app.use(function* (next) {
 })
 ```
 
-### var body = yield* this.request.json([limit])
+### const body = yield* this.request.json([limit])
 
 Get the JSON body of the request, if any.
 `limit` defaults to `100kb`.
 
-### var body = yield* this.request.urlencoded([limit])
+### const body = yield* this.request.urlencoded([limit])
 
 Get the traditional form body of the request, if any,
 `limit` defaults to `100kb`.
 
-### var text = yield* this.request.text([limit])
+### const text = yield* this.request.text([limit])
 
 Get the body of the request as a single `text` string.
 `limit` defaults to `100kb`.
 You could use this to create your own request body parser of some sort.
 
-### var buffer = yield* this.request.buffer([limit])
+### const buffer = yield* this.request.buffer([limit])
 
 Get the body of the request as a single `Buffer` instance.
 `limit` defaults to `1mb`.
 
-### var parts = this.request.parts([options])
+### const parts = this.request.parts([options])
 
 Use this to parse multipart bodies.
 Uses [co-busboy](https://github.com/cojs/busboy) and thus [busboy](https://github.com/mscdex/busboy).
@@ -152,13 +151,13 @@ See [co-busboy's](https://github.com/cojs/busboy) docs on its usage.
 app.use(function* (next) {
   if (!this.request.is('multipart')) return yield* next;
 
-  var parts = this.request.parts();
-  var part;
+  const parts = this.request.parts();
+  let part;
   while (part = yield parts) {
     if (part.length) {
       // fields are returned as arrays
-      var key = part[0];
-      var value = part[1];
+      const key = part[0];
+      const value = part[1];
       // check the CSRF token
       if (key === '_csrf') this.assertCSRF(value);
     } else {

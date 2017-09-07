@@ -1,4 +1,3 @@
-
 ## Et Cetera
 
 Various additional features added to Koala.
@@ -10,7 +9,7 @@ If available, returns `{name: , pass: }`.
 
 ```js
 app.use(function* (next) {
-  var auth = this.request.basicAuth;
+  const auth = this.request.basicAuth;
   if (!auth || auth.name !== 'mycompany' || auth.pass !== 'somepassword') {
     this.throw(401, 'get out of here! this is a private server!');
   }
@@ -40,7 +39,7 @@ You may be used to nested query strings if you come from Express.
 To enable both, simply set `options.qs = true`:
 
 ```js
-var app = koala({
+const app = koala({
   qs: true
 })
 ```

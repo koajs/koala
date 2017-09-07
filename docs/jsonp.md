@@ -1,4 +1,3 @@
-
 ## JSONP
 
 Koala use [koa-safe-jsonp](https://github.com/koajs/koa-safe-jsonp) for JSONP response.
@@ -8,7 +7,7 @@ To enable `jsonp`, install set `options.jsonp = {jsonp options}` at initializati
 See [jsonp options](https://github.com/koajs/koa-safe-jsonp).
 
 ```js
-var app = koala({
+const app = koala({
   jsonp: {
     callback: 'callback'
   }

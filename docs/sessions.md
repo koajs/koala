@@ -1,4 +1,3 @@
-
 ## Sessions
 
 Koala includes [koa-session](https://github.com/koajs/session) for cookie sessions.
@@ -14,7 +13,7 @@ All options are passed to `koala(options)` and hashed as `options.session`.
 See [koa-session](https://github.com/koajs/session) for all the options.
 
 ```js
-var app = koala({
+const app = koala({
   session: {
     maxAge: 14*24*60*60*1000 // 2 weeks
   }

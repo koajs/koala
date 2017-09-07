@@ -1,4 +1,3 @@
-
 ## Response Caching
 
 Koala features response caching, internally spelled as "cash".
@@ -16,7 +15,7 @@ All options passed to [koa-cash](https://github.com/koajs/cash) must be hashed
 by `.cash`.
 
 ```js
-var app = koala({
+const app = koala({
   cash: {
     get: function () {
 

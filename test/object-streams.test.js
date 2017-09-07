@@ -1,9 +1,9 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
 const PassThrough = require('stream').PassThrough;
 
 describe('Object Streams', () => {
-  it('should be supported', done => {
+  test('should be supported', done => {
     const app = koala();
     app.use(function * (next) {
       const body = this.body = new PassThrough({

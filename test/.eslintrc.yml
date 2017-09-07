@@ -1,2 +1,6 @@
+extends: [ plugin:jest/recommended ]
+
 env:
-  mocha: true
+  jest/globals: true
+
+plugins: [ jest ]

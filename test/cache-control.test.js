@@ -1,99 +1,117 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
 
 describe('Cache-Control', () => {
   describe('should be available as', () => {
-    it('this.cc()', done => {
+    test('this.cc()', done => {
       const app = koala();
       app.use(function * (next) {
         this.cc(1000);
         this.status = 204;
       });
 
-      expect(app, 'public, max-age=1', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'public, max-age=1')
+        .end(done);
     });
 
-    it('this.cacheControl()', done => {
+    test('this.cacheControl()', done => {
       const app = koala();
       app.use(function * (next) {
         this.cacheControl(1000);
         this.status = 204;
       });
 
-      expect(app, 'public, max-age=1', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'public, max-age=1')
+        .end(done);
     });
 
-    it('this.response.cc()', done => {
+    test('this.response.cc()', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cc(1000);
         this.status = 204;
       });
 
-      expect(app, 'public, max-age=1', done);
-    });
-
-    it('this.cacheControl()', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl(1000);
-        this.status = 204;
-      });
-
-      expect(app, 'public, max-age=1', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'public, max-age=1')
+        .end(done);
     });
   });
 
   describe('when the value is a number', () => {
-    it('should set "public, max-age="', done => {
+    test('should set "public, max-age="', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(1000000);
         this.status = 204;
       });
 
-      expect(app, 'public, max-age=1000', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'public, max-age=1000')
+        .end(done);
     });
   });
 
   describe('when the value is a time string', () => {
-    it('should set "public, max-age="', done => {
+    test('should set "public, max-age="', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cacheControl('1 hour');
         this.status = 204;
       });
 
-      expect(app, 'public, max-age=3600', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'public, max-age=3600')
+        .end(done);
     });
   });
 
   describe('when the value is "false"', () => {
-    it('should set "private, no-cache"', done => {
+    test('should set "private, no-cache"', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(false);
         this.status = 204;
       });
 
-      expect(app, 'private, no-cache', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'private, no-cache')
+        .end(done);
     });
   });
 
   describe('when the value is a string', () => {
-    it('should juset set it', done => {
+    test('should just set it', done => {
       const app = koala();
       app.use(function * (next) {
-        this.response.cacheControl('lol');
+        this.response.cacheControl('foo');
         this.status = 204;
       });
 
-      expect(app, 'lol', done);
+      request(app.listen())
+        .get('/')
+        .expect(204)
+        .expect('Cache-Control', 'foo')
+        .end(done);
     });
   });
 
   describe('when the value is anything else', () => {
-    it('should throw', done => {
+    test('should throw', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(true);
@@ -106,10 +124,3 @@ describe('Cache-Control', () => {
     });
   });
 });
-
-function expect(app, cc, done) {
-  request(app.listen())
-    .get('/')
-    .expect(204)
-    .expect('Cache-Control', cc, done);
-}

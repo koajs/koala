@@ -33,18 +33,19 @@
     "merge-descriptors": "^1.0.0",
     "ms": "2.0.0",
     "mz": "^2.0.0",
-    "qs": ">= 2",
-    "snyk": "^1.40.2"
+    "qs": ">= 2"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.0.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "istanbul": "^0.4.5",
-    "mocha": "3",
+    "jest": "^21.0.1",
+    "npm-run-all": "^4.1.1",
+    "snyk": "^1.40.2",
     "supertest": "^2.0.0"
   },
   "main": "lib",
@@ -55,9 +56,9 @@
     "template"
   ],
   "scripts": {
-    "test": "NODE_ENV=test mocha --reporter spec --timeout 30s --bail test/**/*.js",
-    "test-cov": "NODE_ENV=test istanbul cover _mocha -- --reporter dot --timeout 2m --bail test/**/*.js",
-    "test-travis": "NODE_ENV=test istanbul cover _mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/**/*.js",
+    "test": "jest --forceExit",
+    "coverage": "npm run test -- --coverage",
+    "validate": "npm-run-all lint coverage",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"

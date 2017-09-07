@@ -1,8 +1,8 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
 
 describe('Basic Auth', () => {
-  it('should return the value', done => {
+  test('should return the value', done => {
     const app = koala();
     app.use(function * (next) {
       this.body = this.request.basicAuth;

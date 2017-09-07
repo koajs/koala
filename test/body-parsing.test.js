@@ -1,11 +1,10 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
-const assert = require('assert');
 const http = require('http');
 
 describe('Body Parsing', () => {
   describe('.request.json()', () => {
-    it('should parse a json body', done => {
+    test('should parse a json body', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();
@@ -20,7 +19,7 @@ describe('Body Parsing', () => {
         .expect(/"lol"/, done);
     });
 
-    it('should throw on non-objects in strict mode', done => {
+    test('should throw on non-objects in strict mode', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();
@@ -32,7 +31,7 @@ describe('Body Parsing', () => {
         .expect(400, done);
     });
 
-    it('should not throw on non-objects in non-strict mode', done => {
+    test('should not throw on non-objects in non-strict mode', done => {
       const app = koala();
       app.jsonStrict = false;
       app.use(function * () {
@@ -48,7 +47,7 @@ describe('Body Parsing', () => {
   });
 
   describe('.request.urlencoded()', () => {
-    it('should parse a urlencoded body', done => {
+    test('should parse a urlencoded body', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.urlencoded();
@@ -61,7 +60,7 @@ describe('Body Parsing', () => {
         .expect(/"lol"/, done);
     });
 
-    it('should not support nested query strings by default', done => {
+    test('should not support nested query strings by default', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.urlencoded();
@@ -78,7 +77,7 @@ describe('Body Parsing', () => {
         .expect(/something\[nested\]/, done);
     });
 
-    it('should support nested query strings with options.qs=true', done => {
+    test('should support nested query strings with options.qs=true', done => {
       const app = koala({
         qs: true
       });
@@ -103,11 +102,11 @@ describe('Body Parsing', () => {
   });
 
   describe('.request.text()', () => {
-    it('should get the raw text body', done => {
+    test('should get the raw text body', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.text();
-        assert.equal('string', typeof this.body);
+        expect(typeof this.body).toBe('string');
       });
       request(app.listen())
         .post('/')
@@ -116,7 +115,7 @@ describe('Body Parsing', () => {
         .expect('message=lol', done);
     });
 
-    it('should throw if the body is too large', done => {
+    test('should throw if the body is too large', done => {
       const app = koala();
       app.use(function * () {
         yield * this.request.text('1kb');
@@ -130,11 +129,11 @@ describe('Body Parsing', () => {
   });
 
   describe('.request.buffer()', () => {
-    it('should get the raw buffer body', done => {
+    test('should get the raw buffer body', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.buffer();
-        assert(Buffer.isBuffer(this.body));
+        expect(Buffer.isBuffer(this.body)).toBeTruthy();
       });
       request(app.listen())
         .post('/')
@@ -143,7 +142,7 @@ describe('Body Parsing', () => {
         .expect('message=lol', done);
     });
 
-    it('should throw if the body is too large', done => {
+    test('should throw if the body is too large', done => {
       const app = koala();
       app.use(function * () {
         yield * this.request.buffer('1kb');
@@ -156,12 +155,8 @@ describe('Body Parsing', () => {
     });
   });
 
-  describe('.request.parts()', () => {
-
-  });
-
   describe('Expect: 100-continue', () => {
-    it('should send 100-continue', done => {
+    test('should send 100-continue', done => {
       const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();

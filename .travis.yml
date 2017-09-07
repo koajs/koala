@@ -4,8 +4,8 @@ node_js:
   - 8
 sudo: false
 before_install: "npm install --global npm"
-script: "npm run lint && npm run test-travis"
-after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
+script: "npm run validate"
+after_script: "npm install coveralls && cat ./coverage/lcov.info | coveralls"
 notifications:
   webhooks:
     urls:

@@ -30,6 +30,62 @@ describe('Set headers', () => {
     );
   });
 
+  describe('Strict-Transport-Security', () => {
+    test('should not set Strict-Transport-Security by default', done => {
+      const app = koala();
+
+      request(app.listen())
+        .get('/')
+        .expect(404)
+        .end((err, res) => {
+          expect(res.headers['Strict-Transport-Security']).toBe(undefined);
+          done(err);
+        });
+    });
+    test('should set Strict-Transport-Security if `hsts` is a number', done => {
+      const app = koala({
+        security: {
+          hsts: 1000
+        }
+      });
+
+      request(app.listen())
+        .get('/')
+        .expect(404)
+        .expect('Strict-Transport-Security', 'max-age=1')
+        .end(done);
+    });
+    test('should set Strict-Transport-Security if `hsts.maxAge` is present', done => {
+      const app = koala({
+        security: {
+          hsts: {
+            maxAge: 1000
+          }
+        }
+      });
+
+      request(app.listen())
+        .get('/')
+        .expect(404)
+        .expect('Strict-Transport-Security', 'max-age=1')
+        .end(done);
+    });
+    test('should set Strict-Transport-Security with `includeSubDomains`', done => {
+      const app = koala({
+        security: {
+          hsts: 1000,
+          includeSubDomains: true
+        }
+      });
+
+      request(app.listen())
+        .get('/')
+        .expect(404)
+        .expect('Strict-Transport-Security', 'max-age=1; includeSubDomains')
+        .end(done);
+    });
+  });
+
   describe('X-Frame-Options', () => {
     test('should get X-Frame-Options DENY by default', done => {
       const app = koala();

@@ -3,19 +3,18 @@ const request = require('supertest');
 
 describe('Middlewares', () => {
   describe('Session', () => {
-    test('should has this.session by default', done => {
+    test('should has this.session by default', () => {
       const app = koala();
 
       app.use(function * () {
         this.body = this.session;
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
-        .expect('{}')
-        .end(done);
+        .expect('{}');
     });
-    test('should has no this.session by options.session = false', done => {
+    test('should has no this.session by options.session = false', () => {
       const app = koala({
         session: false
       });
@@ -24,10 +23,9 @@ describe('Middlewares', () => {
         this.body = this.session === undefined;
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
-        .expect('true')
-        .end(done);
+        .expect('true');
     });
   });
 });

@@ -2,7 +2,7 @@ const koala = require('../lib');
 const request = require('supertest');
 
 describe('jsonp', () => {
-  test('should return jsonp response', done => {
+  test('should return jsonp response', () => {
     const app = koala({
       jsonp: {
         callback: '_callback'
@@ -12,13 +12,13 @@ describe('jsonp', () => {
       this.jsonp = {foo: 'bar'};
     });
 
-    request(app.listen())
+    return request(app.listen())
       .get('/user.json?_callback=fn')
       .expect(200)
-      .expect('/**/ typeof fn === \'function\' && fn({"foo":"bar"});', done);
+      .expect('/**/ typeof fn === \'function\' && fn({"foo":"bar"});');
   });
 
-  test('should return json response', done => {
+  test('should return json response', () => {
     const app = koala({
       jsonp: {
         callback: '_callback'
@@ -28,9 +28,9 @@ describe('jsonp', () => {
       this.jsonp = {foo: 'bar'};
     });
 
-    request(app.listen())
+    return request(app.listen())
       .get('/user.json')
       .expect(200)
-      .expect({'foo': 'bar'}, done);
+      .expect({'foo': 'bar'});
   });
 });

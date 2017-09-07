@@ -12,22 +12,20 @@ describe('Conditional-Get', () => {
 
     const server = app.listen();
 
-    test('should set an etag', done => {
-      request(server)
+    test('should set an etag', () => {
+      return request(server)
         .get('/')
-        .expect(200, (err, res) => {
-          if (err) return done(err);
-
+        .expect(200)
+        .expect(res => {
           etag = res.headers.etag.slice(1, -1);
-          done();
         });
     });
 
-    test('should response 304 w/ if-none-match header', done => {
-      request(server)
+    test('should response 304 w/ if-none-match header', () => {
+      return request(server)
         .get('/')
         .set('If-None-Match', '"' + etag + '"')
-        .expect(304, done);
+        .expect(304);
     });
   });
 });

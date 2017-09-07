@@ -3,13 +3,13 @@ const request = require('supertest');
 
 describe('Nested Query Strings', () => {
   describe('when options.qs = false', () => {
-    test('should not support nested query strings', done => {
+    test('should not support nested query strings', () => {
       const app = koala();
       app.use(function * (next) {
         this.response.body = this.request.query;
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .query({
           something: {
@@ -19,12 +19,12 @@ describe('Nested Query Strings', () => {
         .expect(200)
         .expect({
           'something[nested]': 'true'
-        }, done);
+        });
     });
   });
 
   describe('when options.qs = true', () => {
-    test('should support nested query strings', done => {
+    test('should support nested query strings', () => {
       const app = koala({
         qs: true
       });
@@ -32,7 +32,7 @@ describe('Nested Query Strings', () => {
         this.response.body = this.request.query;
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .query({
           something: {
@@ -44,7 +44,7 @@ describe('Nested Query Strings', () => {
           something: {
             nested: 'true'
           }
-        }, done);
+        });
     });
   });
 });

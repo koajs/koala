@@ -3,59 +3,55 @@ const request = require('supertest');
 
 describe('Set headers', () => {
   describe('X-Response-Time', () => {
-    test('should get X-Response-Time correctly by default', done => {
+    test('should get X-Response-Time correctly by default', () => {
       const app = koala();
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('X-Response-Time', /s$/)
-        .end(done);
+        .expect('X-Response-Time', /s$/);
     });
     test(
       'should not get X-Response-Time by options.responseTime = false',
-      done => {
+      () => {
         const app = koala({
           responseTime: false
         });
 
-        request(app.listen())
+        return request(app.listen())
           .get('/')
           .expect(404)
-          .end((err, res) => {
+          .expect(res => {
             expect(res.headers['X-Response-Time']).toBe(undefined);
-            done(err);
           });
       }
     );
   });
 
   describe('Strict-Transport-Security', () => {
-    test('should not set Strict-Transport-Security by default', done => {
+    test('should not set Strict-Transport-Security by default', () => {
       const app = koala();
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .end((err, res) => {
+        .expect(res => {
           expect(res.headers['Strict-Transport-Security']).toBe(undefined);
-          done(err);
         });
     });
-    test('should set Strict-Transport-Security if `hsts` is a number', done => {
+    test('should set Strict-Transport-Security if `hsts` is a number', () => {
       const app = koala({
         security: {
           hsts: 1000
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('Strict-Transport-Security', 'max-age=1')
-        .end(done);
+        .expect('Strict-Transport-Security', 'max-age=1');
     });
-    test('should set Strict-Transport-Security if `hsts.maxAge` is present', done => {
+    test('should set Strict-Transport-Security if `hsts.maxAge` is present', () => {
       const app = koala({
         security: {
           hsts: {
@@ -64,13 +60,12 @@ describe('Set headers', () => {
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('Strict-Transport-Security', 'max-age=1')
-        .end(done);
+        .expect('Strict-Transport-Security', 'max-age=1');
     });
-    test('should set Strict-Transport-Security with `includeSubDomains`', done => {
+    test('should set Strict-Transport-Security with `includeSubDomains`', () => {
       const app = koala({
         security: {
           hsts: 1000,
@@ -78,64 +73,59 @@ describe('Set headers', () => {
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('Strict-Transport-Security', 'max-age=1; includeSubDomains')
-        .end(done);
+        .expect('Strict-Transport-Security', 'max-age=1; includeSubDomains');
     });
   });
 
   describe('X-Frame-Options', () => {
-    test('should get X-Frame-Options DENY by default', done => {
+    test('should get X-Frame-Options DENY by default', () => {
       const app = koala();
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('X-Frame-Options', 'DENY')
-        .end(done);
+        .expect('X-Frame-Options', 'DENY');
     });
-    test('should not get X-Frame-Options by xframe = false', done => {
+    test('should not get X-Frame-Options by xframe = false', () => {
       const app = koala({
         security: {
           xframe: false
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .end((err, res) => {
+        .expect(res => {
           expect(res.headers['X-Frame-Options']).toBe(undefined);
-          done(err);
         });
     });
-    test('should get X-Frame-Options DENY by xframe = true', done => {
+    test('should get X-Frame-Options DENY by xframe = true', () => {
       const app = koala({
         security: {
           xframe: true
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('X-Frame-Options', 'DENY')
-        .end(done);
+        .expect('X-Frame-Options', 'DENY');
     });
-    test('should get X-Frame-Options SAMEORIGIN by xframe = same', done => {
+    test('should get X-Frame-Options SAMEORIGIN by xframe = same', () => {
       const app = koala({
         security: {
           xframe: 'same'
         }
       });
 
-      request(app.listen())
+      return request(app.listen())
         .get('/')
         .expect(404)
-        .expect('X-Frame-Options', 'SAMEORIGIN')
-        .end(done);
+        .expect('X-Frame-Options', 'SAMEORIGIN');
     });
   });
 });

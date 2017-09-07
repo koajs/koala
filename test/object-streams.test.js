@@ -3,7 +3,7 @@ const request = require('supertest');
 const PassThrough = require('stream').PassThrough;
 
 describe('Object Streams', () => {
-  test('should be supported', done => {
+  test('should be supported', () => {
     const app = koala();
     app.use(function * (next) {
       const body = this.body = new PassThrough({
@@ -21,13 +21,13 @@ describe('Object Streams', () => {
       body.end();
     });
 
-    request(app.listen())
+    return request(app.listen())
       .get('/')
       .expect(200)
       .expect([{
         message: 'a'
       }, {
         message: 'b'
-      }], done);
+      }]);
   });
 });

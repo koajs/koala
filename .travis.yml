@@ -5,7 +5,7 @@ node_js:
 sudo: false
 before_install: "npm install --global npm"
 script: "npm run validate"
-after_script: "npm install coveralls && cat ./coverage/lcov.info | coveralls"
+after_script: "cat ./coverage/lcov.info | coveralls"
 notifications:
   webhooks:
     urls:

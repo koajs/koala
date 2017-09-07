@@ -56,8 +56,8 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test mocha --reporter spec --timeout 30s --bail test/**/*.js",
-    "test-cov": "NODE_ENV=test istanbul cover mocha -- --reporter dot --timeout 2m --bail test/**/*.js",
-    "test-travis": "NODE_ENV=test istanbul cover mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/**/*.js",
+    "test-cov": "NODE_ENV=test istanbul cover _mocha -- --reporter dot --timeout 2m --bail test/**/*.js",
+    "test-travis": "NODE_ENV=test istanbul cover _mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/**/*.js",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"

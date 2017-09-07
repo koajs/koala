@@ -2,10 +2,8 @@ language: node_js
 node_js:
   - 6
   - 8
-sudo: false
-before_install: "npm install --global npm"
-script: "npm run validate"
-after_script: "cat ./coverage/lcov.info | coveralls"
+before_install: npm install --global npm
+after_script: coveralls < coverage/lcov.info
 notifications:
   webhooks:
     urls:

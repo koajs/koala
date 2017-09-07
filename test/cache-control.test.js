@@ -95,7 +95,7 @@ describe('Cache-Control', () => {
   });
 
   describe('when the value is a string', () => {
-    test('should juset set it', done => {
+    test('should just set it', done => {
       const app = koala();
       app.use(function * (next) {
         this.response.cacheControl('foo');

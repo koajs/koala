@@ -1,3 +1,4 @@
+/* eslint-disable */
 
 /**
  * Put all your analytics code in a single file.

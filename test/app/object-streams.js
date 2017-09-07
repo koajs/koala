@@ -1,32 +1,33 @@
+const koala = require('../../lib');
+const request = require('supertest');
+const PassThrough = require('stream').PassThrough;
 
-var PassThrough = require('stream').PassThrough
-
-describe('Object Streams', function () {
-  it('should be supported', function (done) {
-    var app = koala()
-    app.use(function* (next) {
-      var body = this.body = new PassThrough({
+describe('Object Streams', () => {
+  it('should be supported', done => {
+    const app = koala();
+    app.use(function * (next) {
+      const body = this.body = new PassThrough({
         objectMode: true
-      })
+      });
 
       body.write({
         message: 'a'
-      })
+      });
 
       body.write({
         message: 'b'
-      })
+      });
 
-      body.end()
-    })
+      body.end();
+    });
 
     request(app.listen())
-    .get('/')
-    .expect(200)
-    .expect([{
-      message: 'a'
-    }, {
-      message: 'b'
-    }], done)
-  })
-})
+      .get('/')
+      .expect(200)
+      .expect([{
+        message: 'a'
+      }, {
+        message: 'b'
+      }], done);
+  });
+});

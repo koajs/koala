@@ -60,7 +60,7 @@
     "test-travis": "NODE_ENV=test istanbul cover mocha --report lcovonly -- --reporter dot --timeout 2m --bail test/**/*.js",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
-    "lint": "eslint *.js lib/ test/"
+    "lint": "eslint . bin/koala"
   },
   "keywords": [
     "koa",

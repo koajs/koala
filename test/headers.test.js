@@ -1,10 +1,9 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
-const assert = require('assert');
 
 describe('Set headers', () => {
   describe('X-Response-Time', () => {
-    it('should get X-Response-Time correctly by default', done => {
+    test('should get X-Response-Time correctly by default', done => {
       const app = koala();
 
       request(app.listen())
@@ -13,23 +12,26 @@ describe('Set headers', () => {
         .expect('X-Response-Time', /s$/)
         .end(done);
     });
-    it('should not get X-Response-Time by options.responseTime = false', done => {
-      const app = koala({
-        responseTime: false
-      });
-
-      request(app.listen())
-        .get('/')
-        .expect(404)
-        .end((err, res) => {
-          assert.equal(res.headers['X-Response-Time'], undefined);
-          done(err);
+    test(
+      'should not get X-Response-Time by options.responseTime = false',
+      done => {
+        const app = koala({
+          responseTime: false
         });
-    });
+
+        request(app.listen())
+          .get('/')
+          .expect(404)
+          .end((err, res) => {
+            expect(res.headers['X-Response-Time']).toBe(undefined);
+            done(err);
+          });
+      }
+    );
   });
 
   describe('X-Frame-Options', () => {
-    it('should get X-Frame-Options DENY by default', done => {
+    test('should get X-Frame-Options DENY by default', done => {
       const app = koala();
 
       request(app.listen())
@@ -38,7 +40,7 @@ describe('Set headers', () => {
         .expect('X-Frame-Options', 'DENY')
         .end(done);
     });
-    it('should not get X-Frame-Options by xframe = false', done => {
+    test('should not get X-Frame-Options by xframe = false', done => {
       const app = koala({
         security: {
           xframe: false
@@ -49,11 +51,11 @@ describe('Set headers', () => {
         .get('/')
         .expect(404)
         .end((err, res) => {
-          assert.equal(res.headers['X-Frame-Options'], undefined);
+          expect(res.headers['X-Frame-Options']).toBe(undefined);
           done(err);
         });
     });
-    it('should get X-Frame-Options DENY by xframe = true', done => {
+    test('should get X-Frame-Options DENY by xframe = true', done => {
       const app = koala({
         security: {
           xframe: true
@@ -66,7 +68,7 @@ describe('Set headers', () => {
         .expect('X-Frame-Options', 'DENY')
         .end(done);
     });
-    it('should get X-Frame-Options SAMEORIGIN by xframe = same', done => {
+    test('should get X-Frame-Options SAMEORIGIN by xframe = same', done => {
       const app = koala({
         security: {
           xframe: 'same'

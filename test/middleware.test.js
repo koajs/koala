@@ -1,9 +1,9 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
 
 describe('Middlewares', () => {
   describe('Session', () => {
-    it('should has this.session by default', done => {
+    test('should has this.session by default', done => {
       const app = koala();
 
       app.use(function * () {
@@ -15,7 +15,7 @@ describe('Middlewares', () => {
         .expect('{}')
         .end(done);
     });
-    it('should has no this.session by options.session = false', done => {
+    test('should has no this.session by options.session = false', done => {
       const app = koala({
         session: false
       });

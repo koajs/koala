@@ -1,8 +1,8 @@
-const koala = require('../../lib');
+const koala = require('../lib');
 const request = require('supertest');
 
 describe('jsonp', () => {
-  it('should return jsonp response', done => {
+  test('should return jsonp response', done => {
     const app = koala({
       jsonp: {
         callback: '_callback'
@@ -18,7 +18,7 @@ describe('jsonp', () => {
       .expect('/**/ typeof fn === \'function\' && fn({"foo":"bar"});', done);
   });
 
-  it('should return json response', done => {
+  test('should return json response', done => {
     const app = koala({
       jsonp: {
         callback: '_callback'

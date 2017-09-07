@@ -3,7 +3,7 @@ const request = require('supertest');
 
 describe('jsonp', () => {
   it('should return jsonp response', done => {
-    let app = koala({
+    const app = koala({
       jsonp: {
         callback: '_callback'
       }
@@ -19,7 +19,7 @@ describe('jsonp', () => {
   });
 
   it('should return json response', done => {
-    let app = koala({
+    const app = koala({
       jsonp: {
         callback: '_callback'
       }

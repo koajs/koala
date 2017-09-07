@@ -4,7 +4,7 @@ const request = require('supertest');
 describe.skip('Polyfills', () => {
   describe('GET /polyfill.js', () => {
     it('should return the polyfill', done => {
-      let app = koala();
+      const app = koala();
       request(app.listen())
         .get('/polyfill.js')
         .expect(200)

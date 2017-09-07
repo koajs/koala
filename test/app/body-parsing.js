@@ -6,7 +6,7 @@ const http = require('http');
 describe('Body Parsing', () => {
   describe('.request.json()', () => {
     it('should parse a json body', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();
       });
@@ -21,7 +21,7 @@ describe('Body Parsing', () => {
     });
 
     it('should throw on non-objects in strict mode', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();
       });
@@ -33,7 +33,7 @@ describe('Body Parsing', () => {
     });
 
     it('should not throw on non-objects in non-strict mode', done => {
-      let app = koala();
+      const app = koala();
       app.jsonStrict = false;
       app.use(function * () {
         this.body = yield * this.request.json();
@@ -49,7 +49,7 @@ describe('Body Parsing', () => {
 
   describe('.request.urlencoded()', () => {
     it('should parse a urlencoded body', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.urlencoded();
       });
@@ -62,7 +62,7 @@ describe('Body Parsing', () => {
     });
 
     it('should not support nested query strings by default', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.urlencoded();
       });
@@ -79,7 +79,7 @@ describe('Body Parsing', () => {
     });
 
     it('should support nested query strings with options.qs=true', done => {
-      let app = koala({
+      const app = koala({
         qs: true
       });
       app.use(function * () {
@@ -104,7 +104,7 @@ describe('Body Parsing', () => {
 
   describe('.request.text()', () => {
     it('should get the raw text body', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.text();
         assert.equal('string', typeof this.body);
@@ -117,7 +117,7 @@ describe('Body Parsing', () => {
     });
 
     it('should throw if the body is too large', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         yield * this.request.text('1kb');
         this.body = 204;
@@ -131,7 +131,7 @@ describe('Body Parsing', () => {
 
   describe('.request.buffer()', () => {
     it('should get the raw buffer body', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.buffer();
         assert(Buffer.isBuffer(this.body));
@@ -144,7 +144,7 @@ describe('Body Parsing', () => {
     });
 
     it('should throw if the body is too large', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         yield * this.request.buffer('1kb');
         this.body = 204;
@@ -162,7 +162,7 @@ describe('Body Parsing', () => {
 
   describe('Expect: 100-continue', () => {
     it('should send 100-continue', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * () {
         this.body = yield * this.request.json();
       });

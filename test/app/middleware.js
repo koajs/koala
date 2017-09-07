@@ -4,7 +4,7 @@ const request = require('supertest');
 describe('Middlewares', () => {
   describe('Session', () => {
     it('should has this.session by default', done => {
-      let app = koala();
+      const app = koala();
 
       app.use(function * () {
         this.body = this.session;
@@ -16,7 +16,7 @@ describe('Middlewares', () => {
         .end(done);
     });
     it('should has no this.session by options.session = false', done => {
-      let app = koala({
+      const app = koala({
         session: false
       });
 

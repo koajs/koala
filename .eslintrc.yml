@@ -11,3 +11,4 @@ rules:
   arrow-spacing: 2
   dot-location: [2, property]
   prefer-arrow-callback: 2
+  prefer-const: 2

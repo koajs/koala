@@ -4,7 +4,7 @@ const request = require('supertest');
 describe('Nested Query Strings', () => {
   describe('when options.qs = false', () => {
     it('should not support nested query strings', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.body = this.request.query;
       });
@@ -25,7 +25,7 @@ describe('Nested Query Strings', () => {
 
   describe('when options.qs = true', () => {
     it('should support nested query strings', done => {
-      let app = koala({
+      const app = koala({
         qs: true
       });
       app.use(function * (next) {

@@ -3,7 +3,7 @@ const request = require('supertest');
 
 describe('Basic Auth', () => {
   it('should return the value', done => {
-    let app = koala();
+    const app = koala();
     app.use(function * (next) {
       this.body = this.request.basicAuth;
     });

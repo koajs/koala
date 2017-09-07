@@ -5,7 +5,7 @@ const assert = require('assert');
 describe('Set headers', () => {
   describe('X-Response-Time', () => {
     it('should get X-Response-Time correctly by default', done => {
-      let app = koala();
+      const app = koala();
 
       request(app.listen())
         .get('/')
@@ -14,7 +14,7 @@ describe('Set headers', () => {
         .end(done);
     });
     it('should not get X-Response-Time by options.responseTime = false', done => {
-      let app = koala({
+      const app = koala({
         responseTime: false
       });
 
@@ -30,7 +30,7 @@ describe('Set headers', () => {
 
   describe('X-Frame-Options', () => {
     it('should get X-Frame-Options DENY by default', done => {
-      let app = koala();
+      const app = koala();
 
       request(app.listen())
         .get('/')
@@ -39,7 +39,7 @@ describe('Set headers', () => {
         .end(done);
     });
     it('should not get X-Frame-Options by xframe = false', done => {
-      let app = koala({
+      const app = koala({
         security: {
           xframe: false
         }
@@ -54,7 +54,7 @@ describe('Set headers', () => {
         });
     });
     it('should get X-Frame-Options DENY by xframe = true', done => {
-      let app = koala({
+      const app = koala({
         security: {
           xframe: true
         }
@@ -67,7 +67,7 @@ describe('Set headers', () => {
         .end(done);
     });
     it('should get X-Frame-Options SAMEORIGIN by xframe = same', done => {
-      let app = koala({
+      const app = koala({
         security: {
           xframe: 'same'
         }

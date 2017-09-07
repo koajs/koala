@@ -4,7 +4,7 @@ const request = require('supertest');
 describe('Cache-Control', () => {
   describe('should be available as', () => {
     it('this.cc()', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.cc(1000);
         this.status = 204;
@@ -14,7 +14,7 @@ describe('Cache-Control', () => {
     });
 
     it('this.cacheControl()', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.cacheControl(1000);
         this.status = 204;
@@ -24,7 +24,7 @@ describe('Cache-Control', () => {
     });
 
     it('this.response.cc()', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cc(1000);
         this.status = 204;
@@ -34,7 +34,7 @@ describe('Cache-Control', () => {
     });
 
     it('this.cacheControl()', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(1000);
         this.status = 204;
@@ -46,7 +46,7 @@ describe('Cache-Control', () => {
 
   describe('when the value is a number', () => {
     it('should set "public, max-age="', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(1000000);
         this.status = 204;
@@ -58,7 +58,7 @@ describe('Cache-Control', () => {
 
   describe('when the value is a time string', () => {
     it('should set "public, max-age="', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl('1 hour');
         this.status = 204;
@@ -70,7 +70,7 @@ describe('Cache-Control', () => {
 
   describe('when the value is "false"', () => {
     it('should set "private, no-cache"', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(false);
         this.status = 204;
@@ -82,7 +82,7 @@ describe('Cache-Control', () => {
 
   describe('when the value is a string', () => {
     it('should juset set it', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl('lol');
         this.status = 204;
@@ -94,7 +94,7 @@ describe('Cache-Control', () => {
 
   describe('when the value is anything else', () => {
     it('should throw', done => {
-      let app = koala();
+      const app = koala();
       app.use(function * (next) {
         this.response.cacheControl(true);
         this.status = 204;

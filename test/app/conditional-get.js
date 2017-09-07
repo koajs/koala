@@ -5,12 +5,12 @@ describe('Conditional-Get', () => {
   describe('when a body is set', () => {
     let etag;
 
-    let app = koala();
+    const app = koala();
     app.use(function * (next) {
       this.body = 'hello';
     });
 
-    let server = app.listen();
+    const server = app.listen();
 
     it('should set an etag', done => {
       request(server)

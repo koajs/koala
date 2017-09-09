@@ -57,9 +57,9 @@
     "template"
   ],
   "scripts": {
-    "test": "jest --forceExit",
-    "coverage": "npm run test -- --coverage",
-    "validate": "npm-run-all lint coverage",
+    "tests": "jest --forceExit",
+    "coverage": "npm run tests -- --coverage",
+    "test": "npm-run-all lint coverage",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"

@@ -110,7 +110,7 @@
       "prefer-const": 2
     },
     "overrides": {
-      "files": "*.test.js",
+      "files": "**/__tests__/*",
       "env": {
         "jest/globals": true
       }

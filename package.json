@@ -58,8 +58,7 @@
   ],
   "scripts": {
     "tests": "jest --forceExit",
-    "coverage": "npm run tests -- --coverage",
-    "test": "npm-run-all lint coverage",
+    "test": "npm-run-all lint tests",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"
@@ -119,5 +118,8 @@
   "eslintIgnore": [
     "coverage"
   ],
+  "jest": {
+    "collectCoverage": true
+  },
   "snyk": true
 }

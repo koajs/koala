@@ -57,7 +57,7 @@
     "template"
   ],
   "scripts": {
-    "tests": "jest --forceExit",
+    "tests": "jest",
     "test": "npm-run-all lint tests",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",

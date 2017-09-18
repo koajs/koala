@@ -36,6 +36,7 @@
     "qs": ">= 2"
   },
   "devDependencies": {
+    "coveralls": "*",
     "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -56,9 +57,8 @@
     "template"
   ],
   "scripts": {
-    "test": "jest --forceExit",
-    "coverage": "npm run test -- --coverage",
-    "validate": "npm-run-all lint coverage",
+    "tests": "jest",
+    "test": "npm-run-all lint tests",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"
@@ -75,5 +75,51 @@
     "promises",
     "push"
   ],
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "plugin:jest/recommended"
+    ],
+    "plugins": [
+      "jest"
+    ],
+    "rules": {
+      "arrow-parens": [
+        2,
+        "as-needed"
+      ],
+      "eqeqeq": 0,
+      "no-return-assign": 0,
+      "no-var": 2,
+      "semi": [
+        2,
+        "always"
+      ],
+      "space-before-function-paren": [
+        2,
+        "never"
+      ],
+      "yoda": 0,
+      "arrow-spacing": 2,
+      "dot-location": [
+        2,
+        "property"
+      ],
+      "prefer-arrow-callback": 2,
+      "prefer-const": 2
+    },
+    "overrides": {
+      "files": "**/__tests__/*",
+      "env": {
+        "jest/globals": true
+      }
+    }
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "jest": {
+    "collectCoverage": true
+  },
   "snyk": true
 }

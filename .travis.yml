@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - 4
   - 6
   - 8
+  - 10
 sudo: false
 before_install: "npm install --global npm"
 script: "npm run validate"

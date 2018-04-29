@@ -67,16 +67,17 @@ Koala returns a `koa` app, except it includes more features.
 
 ```js
 const koala = require('koala');
-const app = koala();
+const app = new Koala();
 
-app.use(function* () {
+app.use(async () => {
   this.response.status = 204;
 });
 
-const fn = app.callback();
-
-require('http').createServer(fn).listen(function (err) {
-  if (err) throw err;
+app.listen((err) => {
+  if (err) {
+    console.error(err);
+    throw err;
+  }
   console.log('Koala app listening on port %s', this.address().port);
 });
 ```

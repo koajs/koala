@@ -15,7 +15,7 @@
     "commander": "2",
     "debug": "*",
     "delegates": "1.0.0",
-    "koa": "1.4.0",
+    "koa": "2.5.1",
     "koa-body-parsers": "^1.1.0",
     "koa-bodyparser": "^2.5.0",
     "koa-cash": "2",
@@ -68,15 +68,8 @@
     "coverage": "npm run test -- --coverage",
     "validate": "npm-run-all lint coverage",
     "snyk-protect": "snyk protect",
-<<<<<<< HEAD
     "prepare": "npm run snyk-protect",
     "lint": "eslint . bin/koala"
-||||||| merged common ancestors
-    "prepare": "npm run snyk-protect"
-=======
-    "start": "node lib/app.js",
-    "prepare": "npm run snyk-protect"
->>>>>>> Make the tests pass
   },
   "keywords": [
     "koa",

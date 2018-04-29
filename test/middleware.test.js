@@ -1,33 +1,34 @@
-const koala = require('../lib');
+const Koala = require('../lib');
 const request = require('supertest');
 
 describe('Middlewares', () => {
   describe('Session', () => {
-    test('should has this.session by default', done => {
-      const app = koala();
+    it('should has this.session by default', (done) => {
+      const app = new Koala()
 
-      app.use(function * () {
-        this.body = this.session;
-      });
+      app.use(async (ctx) => {
+        ctx.body = ctx.session;
+      })
 
       request(app.listen())
-        .get('/')
-        .expect('{}')
-        .end(done);
-    });
-    test('should has no this.session by options.session = false', done => {
-      const app = koala({
+      .get('/')
+      .expect('{}')
+      .end(done)
+    })
+
+    it('should has no this.session by options.session = false', (done) => {
+      const app = new Koala({
         session: false
-      });
+      })
 
-      app.use(function * () {
-        this.body = this.session === undefined;
-      });
+      app.use(async (ctx) => {
+        ctx.body = ctx.session === undefined
+      })
 
       request(app.listen())
-        .get('/')
-        .expect('true')
-        .end(done);
-    });
-  });
-});
+      .get('/')
+      .expect('true')
+      .end(done)
+    })
+  })
+})

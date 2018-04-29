@@ -1,126 +1,115 @@
-const koala = require('../lib');
+const Koala = require('../lib');
 const request = require('supertest');
 
-describe('Cache-Control', () => {
-  describe('should be available as', () => {
-    test('this.cc()', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.cc(1000);
-        this.status = 204;
-      });
+describe('Cache-Control', function () {
+  describe('should be available as', function () {
+    it('this.cc()', (done) =>{
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.cc(1000)
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'public, max-age=1')
-        .end(done);
-    });
+      expect(app, 'public, max-age=1', done)
+    })
 
-    test('this.cacheControl()', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.cacheControl(1000);
-        this.status = 204;
-      });
+    it('this.cacheControl()', (done) =>{
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.cacheControl(1000)
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'public, max-age=1')
-        .end(done);
-    });
+      expect(app, 'public, max-age=1', done)
+    })
 
-    test('this.response.cc()', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cc(1000);
-        this.status = 204;
-      });
+    it('this.response.cc()', (done) =>{
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cc(1000)
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'public, max-age=1')
-        .end(done);
-    });
-  });
+      expect(app, 'public, max-age=1', done)
+    })
+
+    it('this.cacheControl()', (done) =>{
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl(1000)
+        ctx.status = 204
+      })
+
+      expect(app, 'public, max-age=1', done)
+    })
+  })
 
   describe('when the value is a number', () => {
-    test('should set "public, max-age="', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl(1000000);
-        this.status = 204;
-      });
+    it('should set "public, max-age="', (done) => {
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl(1000000)
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'public, max-age=1000')
-        .end(done);
-    });
-  });
+      expect(app, 'public, max-age=1000', done)
+    })
+  })
 
   describe('when the value is a time string', () => {
-    test('should set "public, max-age="', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl('1 hour');
-        this.status = 204;
-      });
+    it('should set "public, max-age="', (done) => {
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl('1 hour')
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'public, max-age=3600')
-        .end(done);
-    });
-  });
+      expect(app, 'public, max-age=3600', done)
+    })
+  })
 
   describe('when the value is "false"', () => {
-    test('should set "private, no-cache"', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl(false);
-        this.status = 204;
-      });
+    it('should set "private, no-cache"', (done) => {
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl(false)
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'private, no-cache')
-        .end(done);
-    });
-  });
+      expect(app, 'private, no-cache', done)
+    })
+  })
 
   describe('when the value is a string', () => {
-    test('should just set it', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl('foo');
-        this.status = 204;
-      });
+    it('should juset set it', (done) => {
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl('lol')
+        ctx.status = 204
+      })
 
-      request(app.listen())
-        .get('/')
-        .expect(204)
-        .expect('Cache-Control', 'foo')
-        .end(done);
-    });
-  });
+      expect(app, 'lol', done)
+    })
+  })
 
   describe('when the value is anything else', () => {
-    test('should throw', done => {
-      const app = koala();
-      app.use(function * (next) {
-        this.response.cacheControl(true);
-        this.status = 204;
-      });
+    it('should throw', (done) => {
+      const app = new Koala()
+      app.use(async (ctx, next) =>{
+        ctx.response.cacheControl(true)
+        ctx.status = 204
+      })
 
       request(app.listen())
-        .get('/')
-        .expect(500, done);
-    });
-  });
-});
+      .get('/')
+      .expect(500, done)
+    })
+  })
+})
+
+function expect(app, cc, done) {
+  request(app.listen())
+  .get('/')
+  .expect(204)
+  .expect('Cache-Control', cc, done)
+}

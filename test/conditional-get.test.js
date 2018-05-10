@@ -1,18 +1,18 @@
-const koala = require('../lib');
+const Koala = require('../lib');
 const request = require('supertest');
 
 describe('Conditional-Get', () => {
   describe('when a body is set', () => {
     let etag;
 
-    const app = koala();
-    app.use(function * (next) {
-      this.body = 'hello';
+    const app = new Koala();
+    app.use(async(ctx, next) => {
+      ctx.body = 'hello';
     });
 
     const server = app.listen();
 
-    test('should set an etag', done => {
+    it('should set an etag', done => {
       request(server)
         .get('/')
         .expect(200, (err, res) => {
@@ -23,7 +23,7 @@ describe('Conditional-Get', () => {
         });
     });
 
-    test('should response 304 w/ if-none-match header', done => {
+    it('should response 304 w/ if-none-match header', done => {
       request(server)
         .get('/')
         .set('If-None-Match', '"' + etag + '"')

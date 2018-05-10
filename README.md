@@ -16,10 +16,6 @@ Think of it as a KrakenJS for Koa.
 
 Beware! Koala is alpha software!
 
-[Koa 2](https://github.com/koajs/koala/issues/17) is currently
-unsupported. Please refer to [Contributing](CONTRIBUTING.md) if you'd like to
-help us support it.
-
 ## Philosophy
 
 Koa is a bare minimal framework, focusing on unopinionated core HTTP utilities.
@@ -71,16 +67,17 @@ Koala returns a `koa` app, except it includes more features.
 
 ```js
 const koala = require('koala');
-const app = koala();
+const app = new Koala();
 
-app.use(function* () {
+app.use(async () => {
   this.response.status = 204;
 });
 
-const fn = app.callback();
-
-require('http').createServer(fn).listen(function (err) {
-  if (err) throw err;
+app.listen((err) => {
+  if (err) {
+    console.error(err);
+    throw err;
+  }
   console.log('Koala app listening on port %s', this.address().port);
 });
 ```

@@ -39,10 +39,10 @@
     "ms": "^2.1.1",
     "mz": "^2.7.0",
     "qs": "^6.5.1",
-    "request": "^2.34"
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "eslint": "^4.6.1",
+    "eslint": "^5.9.0",
     "eslint-config-koa": "^2.0.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.7.0",
@@ -52,7 +52,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^22.4.3",
     "npm-run-all": "^4.1.1",
-    "snyk": "^1.74.0",
+    "snyk": "^1.108.2",
     "supertest": "^3.0.0"
   },
   "engines": {
@@ -85,5 +85,8 @@
     "promises",
     "push"
   ],
-  "snyk": true
+  "snyk": true,
+  "jest": {
+    "testURL": "https://koala.com"
+  }
 }

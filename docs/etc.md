@@ -8,13 +8,13 @@ Uses [basic-auth](https://github.com/visionmedia/node-basic-auth).
 If available, returns `{name: , pass: }`.
 
 ```js
-app.use(function* (next) {
+app.use(async (next) => {
   const auth = this.request.basicAuth;
   if (!auth || auth.name !== 'mycompany' || auth.pass !== 'somepassword') {
     this.throw(401, 'get out of here! this is a private server!');
   }
 
-  yield* next;
+  await next;
 })
 ```
 
@@ -25,7 +25,7 @@ you can simply set an object stream as the body,
 and Koala will automatically stringify it for you:
 
 ```js
-app.use(function* () {
+app.use(async () => {
   this.body = db.users.find().limit(100).stream();
 })
 ```

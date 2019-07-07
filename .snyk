@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:qs:20170213':
@@ -11,3 +11,12 @@ patch:
   'npm:uglify-js:20151024':
     - koa-error > swig > uglify-js:
         patched: '2017-09-02T05:43:14.379Z'
+  SNYK-JS-LODASH-450202:
+    - koa-error > lodash:
+        patched: '2019-07-07T08:20:30.309Z'
+    - koa-pug > pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2019-07-07T08:20:30.309Z'
+    - koa-pug > pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2019-07-07T08:20:30.309Z'
+    - koa-pug > pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2019-07-07T08:20:30.309Z'

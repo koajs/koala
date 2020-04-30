@@ -39,7 +39,8 @@
     "ms": "^2.1.1",
     "mz": "^2.7.0",
     "qs": "^6.5.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -52,7 +53,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^22.4.3",
     "npm-run-all": "^4.1.1",
-    "snyk": "^1.108.2",
     "supertest": "^3.0.0"
   },
   "engines": {

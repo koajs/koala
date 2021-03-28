@@ -29,7 +29,7 @@
     "koa-file-server": "2",
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.0",
-    "koa-pug": "^3.0.0-2",
+    "koa-pug": "^5.0.0",
     "koa-qs": "^2.0.0",
     "koa-response-time": "^2.0.0",
     "koa-safe-jsonp": "0",

@@ -28,7 +28,7 @@
     "koa-etag": "^3.0.0",
     "koa-file-server": "2",
     "koa-json": "^2.0.2",
-    "koa-logger": "^3.2.0",
+    "koa-logger": "^3.2.1",
     "koa-pug": "^3.0.0-2",
     "koa-qs": "^3.0.0",
     "koa-response-time": "^2.0.0",

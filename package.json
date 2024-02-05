@@ -39,7 +39,7 @@
     "ms": "^2.1.1",
     "mz": "^2.7.0",
     "qs": "^6.5.3",
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
